@@ -2,7 +2,7 @@
 var s = function (p) {
 
     p.setup = function () {
-        p.createCanvas(1000, 120);         //createCanvas() function sets up background for code to run within and takes 2 params- width & height
+        p.createCanvas(1000, 160);         //createCanvas() function sets up background for code to run within and takes 2 params- width & height
     };
 
     p.draw = function () {
@@ -21,7 +21,7 @@ new p5(s);
 var t = function (u) {
 
     u.setup = function () {
-        u.createCanvas(1000, 120);
+        u.createCanvas(1000, 160);
         u.fill(0, 102);
         u.noStroke();
     }
@@ -32,18 +32,32 @@ var t = function (u) {
 new p5(t)
 // each time the code in the draw() block is run, a new circle is drawn to the canvas
 
+
+var a = function (b) {
+    b.setup = function () {
+        b.createCanvas(1000, 160);
+    }
+    b.draw = function () {
+        b.translate(b.mouseX, b.mouseY);       // 'x' parameter specifies left/right translation; 'y' specifies up/down translation
+        b.scale(b.mouseX / 60.0);              // the scale() function is increasing the size of the rectangle by expanding its veritces 
+        b.rect(-15, -15, 30, 30);
+    }
+}
+new p5(a)
+
+
 var angle = 0.0;
 function setup() {
-createCanvas(1000, 140);
+createCanvas(1000, 160);
 // background(204);
 }
 function draw() {
 translate(mouseX, mouseY);
-rotate(angle);
+rotate(angle);                          // continuously rotates the rect(angle)
 rect(-15, -15, 30, 30);
 angle += 0.1;
 }
 
 
 
-// new p5(s);
+

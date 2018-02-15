@@ -1,32 +1,11 @@
 
-// function setup() {
-//     createCanvas(480, 120);   //createCanvas() function sets up background for code to run within and takes 2 params- width & height 
-//     }
-//     function draw() {
-//     if (mouseIsPressed) {
-//     fill(0);                    // when mouse button is pressed, the circle changes color to black 
-//     } else {
-//     fill(255);
-//     }
-//     ellipse(mouseX, mouseY, 80, 80);
-//     };
-
-
-
-
-
-
-
 var s = function (p) {
 
     p.setup = function () {
-        p.createCanvas(480, 120);
+        p.createCanvas(1000, 120);         //createCanvas() function sets up background for code to run within and takes 2 params- width & height
     };
 
     p.draw = function () {
-        // p.ellipse(p.mouseX, p.mouseY, 80, 80);
-        // };
-        // p.mouseIsPressed = function () {
         if (p.mouseIsPressed) {
             p.fill(0);                    // when mouse button is pressed, the circle changes color to black 
         } else {
@@ -34,9 +13,37 @@ var s = function (p) {
         }
         p.ellipse(p.mouseX, p.mouseY, 80, 80);
     };
-
 }
 new p5(s);
+// used 'Instance Mode' here so that multiple canvases could be added to the same webpage
 
 
-new p5(s);
+var t = function (u) {
+
+    u.setup = function () {
+        u.createCanvas(1000, 120);
+        u.fill(0, 102);
+        u.noStroke();
+    }
+    u.draw = function () {
+        u.ellipse(u.mouseX, u.mouseY, 9, 9);
+    }
+}
+new p5(t)
+// each time the code in the draw() block is run, a new circle is drawn to the canvas
+
+var angle = 0.0;
+function setup() {
+createCanvas(1000, 140);
+// background(204);
+}
+function draw() {
+translate(mouseX, mouseY);
+rotate(angle);
+rect(-15, -15, 30, 30);
+angle += 0.1;
+}
+
+
+
+// new p5(s);
